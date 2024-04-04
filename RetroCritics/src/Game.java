@@ -29,7 +29,8 @@ public class Game {
         for(int i = 0; i < reviews.size(); i++) {
             score += reviews.get(i).berekenGemiddeldeScore();
         }
-        return (double)score / (double) reviews.size();
+        double gemiddeldeScore = score / reviews.size();
+        return gemiddeldeScore;
     }
 
 
