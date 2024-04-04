@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 public class Menu {
     public ArrayList<Menukeuze> menukeuzes;
-    public toonMenu(){
+    public void toonMenu(){
 Scanner scanner = new Scanner (System.in);
     }
-    public voegKeuzeToe(Menukeuze menu){
+    public void voegKeuzeToe(Menukeuze menu){
 
     }
 }
