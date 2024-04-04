@@ -12,7 +12,7 @@ while(keuze !8) {
     System.out.println("1. Games bekijken");
     System.out.println("2. Game reviewen");
     System.out.println("3. ");
-    System.out.println("1. Games bekijken");
+    System.out.println("4. ");
 
         }
     }
