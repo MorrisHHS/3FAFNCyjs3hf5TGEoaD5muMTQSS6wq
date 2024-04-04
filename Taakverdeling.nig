@@ -1,0 +1,19 @@
+William:
+    SaveManager
+    ISaveable
+
+Morris:
+    Menu
+    MenuKeuze
+
+Xander:
+    Game
+
+Melle:
+    Vraag
+    MulipleChoice
+    OpenVraag
+    ConditioneleVraag
+
+Abhishek:
+    Enquete
