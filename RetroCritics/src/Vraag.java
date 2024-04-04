@@ -1,3 +1,4 @@
+
 public abstract class Vraag {
     int nummer;
     String  beschrijving;
