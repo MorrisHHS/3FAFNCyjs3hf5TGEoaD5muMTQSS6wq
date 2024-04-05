@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class Enquête {
+public class Enquete {
     private ArrayList<Vraag> vragen;
 
-    public Enquête() {
+    public Enquete() {
         this.vragen = new ArrayList<>();
     }
 
