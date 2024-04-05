@@ -1,7 +1,6 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        
+        SaveManager.writeToFile("UwU OwO QwQ TwT", "C:\\Users\\vooij\\IdeaProjects\\3FAFNCyjs3hf5TGEoaD5muMTQSS6wq\\RetroCritics\\FileTest\\UwU.txt");
+
     }
 }
