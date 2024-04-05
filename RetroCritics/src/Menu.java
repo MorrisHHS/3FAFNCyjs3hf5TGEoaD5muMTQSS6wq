@@ -18,6 +18,11 @@ while(keuze !4) {
     if(scanner.hasNextInt()) {
         keuze = scanner.nextInt();
         scanner.nextLine();
+        switch (keuze) {
+            case 1:
+
+                break;
+        }
     }
         }
     }
