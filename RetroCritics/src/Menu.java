@@ -2,28 +2,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-    public ArrayList<Menukeuze> menukeuzes;
-    public void toonMenu(){
-Scanner scanner = new Scanner (System.in);
-int keuze = 0;
+    public ArrayList<Menukeuze> menukeuzes = new ArrayList<>();
+    public void toonMenu() {
+        Scanner scanner = new Scanner(System.in);
+        int keuze = 0;
 
-while(keuze !4) {
-    System.out.println("Menu:");
-    System.out.println("Maak een keuze");
-    System.out.println("1. Games bekijken");
-    System.out.println("2. Game reviewen");
-    System.out.println("3. Uitverkoop");
-    System.out.println("4. Afsluiten");
+        while (!(keuze ==menukeuzes.size() - 1)){
+            System.out.println("Menu:");
 
-    if(scanner.hasNextInt()) {
-        keuze = scanner.nextInt();
-        scanner.nextLine();
-        switch (keuze) {
-            case 1:
+            for (Menukeuze mk : menukeuzes) {
 
-                break;
-        }
-    }
+
+            }
         }
     }
     public void voegKeuzeToe(Menukeuze menu){
