@@ -7,7 +7,7 @@ public class Menu {
 Scanner scanner = new Scanner (System.in);
 int keuze = 0;
 
-while(keuze !4) {
+while(keuze !=4) {
     System.out.println("Menu:");
     System.out.println("Maak een keuze");
     System.out.println("1. Games bekijken");
