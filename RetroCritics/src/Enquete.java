@@ -4,7 +4,7 @@ public class Enquete {
     private ArrayList<EnqueteVraag> vragen;
 
     public Enquete() {
-        this.vragen = new ArrayList<>();
+        vragen = new ArrayList<>();
     }
 
     public void voegVraagToe(EnqueteVraag vraag) {
@@ -12,31 +12,23 @@ public class Enquete {
     }
 
     public String toonVragen() {
-        StringBuilder resultaat = new StringBuilder();
-        for (EnqueteVraag vraag : vragen) {
-            resultaat.append(vraag.display()).append("\n");
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < vragen.size(); i++) {
+            result.append("Vraag ").append(i + 1).append(": ").append(vragen.get(i).getTekst()).append("\n");
         }
-        return resultaat.toString();
+        return result.toString();
     }
 }
 
-public abstract class EnqueteVraag {
-    private int nummer;
-    private String beschrijving;
+class EnqueteVraag extends Vraag { // EnqueteVraag breidt Vraag uit
+    private String tekst;
 
-    public EnqueteVraag(int nummer, String beschrijving) {
-        this.nummer = nummer;
-        this.beschrijving = beschrijving;
+    public EnqueteVraag(int nummer, String tekst) {
+        this.nummer = nummer; // Nummer van de vraag instellen
+        this.tekst = tekst;
     }
 
-    public abstract void beantwoord();
-
-    public String display() {
-        return "Vraag " + nummer + ": " + beschrijving;
+    public String getTekst() {
+        return tekst;
     }
-}
-
-public static void main(String[] args) {
-    // Instantiate Enquete and add questions
-    // Call methods to interact with the Enquete object
 }
