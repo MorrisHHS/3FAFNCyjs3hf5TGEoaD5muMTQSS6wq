@@ -1,7 +1,7 @@
 import java.util.*;
 public class SaveData {
     private Map<String, String> data = new HashMap<>();
-    //pluh
+
 
     public void addAttribute(String key, String value) {
         data.put(key, value);
