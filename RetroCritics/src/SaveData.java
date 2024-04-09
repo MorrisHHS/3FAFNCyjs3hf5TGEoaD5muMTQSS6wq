@@ -6,7 +6,7 @@ public class SaveData {
     public void addAttribute(String key, String value) {
         data.put(key, value);
     }
-    public String readAtrribute(String key){
+    public String readAttribute(String key){
         return data.get(key);
     }
     public String getData (){
