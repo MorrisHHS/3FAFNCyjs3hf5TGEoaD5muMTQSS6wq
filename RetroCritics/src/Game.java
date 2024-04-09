@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 public class Game {
     public String naam;
     public int prijs;
@@ -16,15 +15,6 @@ public class Game {
     }
     public String getNaam() {
         return this.naam;
-    }
-
-    public void maakReviewAan(Scanner scanner) {
-        Review review1 = new Review(scanner, getNaam());
-        reviews.add(review1);
-        review1.geefRating(scanner, review1.storyline);
-        review1.geefRating(scanner, review1.graphics);
-        review1.geefRating(scanner, review1.gameplay);
-
     }
     public void prijsBewerken(int nieuwePrijs) {
         this.prijs = nieuwePrijs;

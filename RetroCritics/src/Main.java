@@ -1,9 +1,6 @@
-import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Game Famctorio = new Game("Famctorio", 1000);
-        Famctorio.maakReviewAan(scanner);
+        SaveManager.writeToFile("UwU OwO QwQ TwT", "C:\\Users\\vooij\\IdeaProjects\\3FAFNCyjs3hf5TGEoaD5muMTQSS6wq\\RetroCritics\\FileTest\\UwU.txt");
 
     }
 }
