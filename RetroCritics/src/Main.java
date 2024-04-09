@@ -1,19 +1,9 @@
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args)
-    {
-        //EnqueteAbhi
-        Enquete enquete = new Enquete();
-        EnqueteVragen enqueteVragen = new EnqueteVragen();
-
-        // Get questions from EnqueteVragen and add them to Enquete
-        ArrayList<String> vragen = EnqueteVragen.getVragen();
-        for (String vraag : vragen) {
-            enquete.voegVraagToe(vraag);
-        }
-
-        // Display the questions
-        System.out.println(enquete.toonVragen());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Game valurFamctorio = new Game("Famctorio", 1000);
+        Review review1 = new Review(scanner);
     }
 }
