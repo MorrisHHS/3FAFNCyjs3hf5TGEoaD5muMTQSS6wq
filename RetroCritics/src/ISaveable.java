@@ -1,5 +1,5 @@
 public interface ISaveable {
-    JSON_Object save();
+    SaveData save();
 
-    void load(JSON_Object json_object);
+    void load(SaveData saveData);
 }

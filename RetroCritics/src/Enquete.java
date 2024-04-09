@@ -1,21 +1,24 @@
 import java.util.ArrayList;
 
-public class Enquete {
-    private ArrayList<Vraag> vragen;
+public class Enquete
+{
+    private ArrayList<String> vragen;
 
-    public Enquete() {
+    public Enquete()
+    {
         this.vragen = new ArrayList<>();
     }
 
-    public void voegVraagToe(Vraag vraag) {
+    public void voegVraagToe(String vraag)
+    {
         this.vragen.add(vraag);
     }
 
     public String toonVragen() {
-        StringBuilder result = new StringBuilder();
-        for (Vraag vraag : vragen) {
-            result.append(vraag.toString()).append("\n");
+        String result = "";
+        for (int i = 0; i < vragen.size(); i++) {
+            result += vragen.get(i) + "\n";
         }
-        return result.toString();
+        return result;
     }
 }

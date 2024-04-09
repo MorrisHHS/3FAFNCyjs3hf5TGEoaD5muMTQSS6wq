@@ -2,6 +2,7 @@ import java.io.*;
 
 public class SaveManager {
 
+
     public static void writeToFile(String data, String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(data);
