@@ -25,7 +25,7 @@ public class MainMenu extends Menukeuze
         }
 
         System.out.println(" ");
-        System.out.println("Je zit in menu: " + naam);
+        System.out.println(naam + ";");
         menu.toonMenu();
     }
 }
