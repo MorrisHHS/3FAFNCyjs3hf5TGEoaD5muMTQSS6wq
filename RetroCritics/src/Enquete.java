@@ -14,13 +14,22 @@ public class Enquete
         this.vragen.add(vraag);
     }
 
-    public String toonVragen()
+    public void toonVragen()
     {
-        StringBuilder result = new StringBuilder();
         for (Vraag vraag : vragen)
         {
-            result.append(vraag.toString()).append("\n");
+            vraag.display();
         }
-        return result.toString();
+    }
+
+    public static void main(String[] args)
+    {
+        Enquete enquete = new Enquete();
+
+        enquete.voegVraagToe(new OpenVraag(1, "Wat is je naam?"));
+        enquete.voegVraagToe(new MultipleChoiceVraag(2, "Zou je de app nog een keer gebruiken? (Ja/Nee)", (byte)1));
+        //enquete.voegVraagToe(new ConditioneleVraag((byte)1, "Waarom zou je de app nog een keer willen gebruiken?"));
+
+        enquete.toonVragen();
     }
 }
