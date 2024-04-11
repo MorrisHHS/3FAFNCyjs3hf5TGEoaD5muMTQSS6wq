@@ -13,9 +13,27 @@ public class MultipleChoiceVraag extends Vraag{
     }
     @Override
     public void beantwoord(){
-        antwoord = scanner.nextByte();
-        isConditioneleVraag();
+        boolean isByte = false;
+        while (!isByte) {
+            if (scanner.hasNextByte()) {
+
+                antwoord = scanner.nextByte();
+                antwoord--;
+            } else {
+                System.out.println("Voer een geldige keuze in");
+            }
+            if (antwoord >= 0 && antwoord < 4) {
+                isByte = true;
+            } else {
+                System.out.println("Voer een geldige keuze in");
+            }
+        }
+        if(isConditioneleVraag()) {
+            conditioneleVraag.display();
+            conditioneleVraag.beantwoord();
+        }
     }
+
     @Override
     public void display() {
         System.out.println(nummer + ". " + beschrijving);

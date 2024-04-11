@@ -5,11 +5,11 @@ public class EnqueteVragen {
     Enquete enquete = new Enquete();
     public static ArrayList<String> getVragen() {
         ArrayList<String> questions = new ArrayList<>();
-        questions.add("Hoe vaak gebruik je de reviewapp?");
-        questions.add("Welke functies van de reviewapp gebruik je het meest?");
-        questions.add("Op welke apparaten gebruik je de reviewapp (bijvoorbeeld: smartphone, tablet, desktop)?");
-        questions.add("Hoe gemakkelijk vind je het om nieuwe recensies toe te voegen?");
-        questions.add("Hoe zou je de gebruikersinterface van de reviewapp beoordelen op een schaal van 1 tot 10?");
+        questions.add("");
+        questions.add("");
+        questions.add("");
+        questions.add("");
+        questions.add("");
         questions.add("Heb je ooit problemen ondervonden bij het gebruik van de reviewapp? Zo ja, welke?");
         questions.add("Hoe nauwkeurig vind je de beoordelingen en recensies op de app?");
         questions.add("Welke functies zou je graag toegevoegd zien aan de reviewapp?");
