@@ -1,6 +1,6 @@
 public class MenuTest {
     public static void Run(){
-        Menukeuze mainMenu = new Menukeuze("mainMenu");
+        Menukeuze mainMenu = new MainMenu("mainMenu");
         Menukeuze gameSaleMenu = new Menukeuze("gameSaleMenu");
         Menukeuze reviewMenu = new Menukeuze("reviewMenu");
 
