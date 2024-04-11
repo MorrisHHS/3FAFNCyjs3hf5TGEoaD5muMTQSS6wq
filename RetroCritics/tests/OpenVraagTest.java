@@ -18,7 +18,6 @@ public class OpenVraagTest {
         Assertions.assertEquals(input, openVraag.antwoord);
     }
 
-
     @Test
     public void testDisplay() {
         int nummer = 1;

@@ -3,8 +3,7 @@ public class ConditioneleVraag extends OpenVraag{
     Scanner scanner = new Scanner(System.in);
     public byte conditioneleVraagNummer;
 
-    ConditioneleVraag(byte conditioneleVraagNummer, String beschrijving){
-        this.conditioneleVraagNummer = conditioneleVraagNummer;
+    ConditioneleVraag(String beschrijving){
         this.beschrijving = beschrijving;
     }
     @Override
@@ -13,6 +12,6 @@ public class ConditioneleVraag extends OpenVraag{
     }
     @Override
     public void display() {
-        System.out.println(nummer + ". " + beschrijving);
+        System.out.println(beschrijving);
     }
 }
