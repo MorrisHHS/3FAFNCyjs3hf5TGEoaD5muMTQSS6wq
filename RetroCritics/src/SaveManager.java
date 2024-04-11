@@ -1,9 +1,11 @@
 import java.io.*;
+import java.nio.file.*;
 
 public class SaveManager {
+    private static boolean debug = true;
+    private static String persistentDataPath = System.getProperty("java.class.path");
 
-
-    public static void writeToFile(String data, String filePath) {
+    private static void writeToFile(String data, String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(data);
         } catch (IOException e) {
@@ -11,7 +13,7 @@ public class SaveManager {
         }
     }
 
-    public static String readFile(String filePath) {
+    private static String readFile(String filePath) {
         StringBuilder data = new StringBuilder();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -27,10 +29,59 @@ public class SaveManager {
         return data.toString();
     }
 
-
-    public static void saveObject(ISaveable saveableObject){
-
+    private static void checkFolder(String path) {
+        Path folderPath = Paths.get(path);
+        if (!Files.exists(folderPath)) {
+            try {
+                Files.createDirectories(folderPath);
+                if (debug){
+                    System.out.println("Created Folder: " + folderPath);
+                }
+            } catch (IOException e) {
+                System.err.println("Error creating folder: " + e.getMessage());
+            }
+        }
+        else{
+            if (debug){
+                System.out.println("Folder Already Exists At: " + folderPath);
+            }
+        }
     }
 
+    private static void checkAllFolders(){
+        checkFolder(persistentDataPath + "/Data"); // data folder
+        checkFolder(persistentDataPath + "/Data/Games"); // games folder
+        checkFolder(persistentDataPath + "/Data/Enquetes"); // enquetes folder
+    }
 
+    public static void saveGame(SaveData saveData, String gameName){
+        checkAllFolders();
+        checkFolder(persistentDataPath + "/Data/Games/" + gameName);
+        writeToFile(saveData.getData(), persistentDataPath + "/Data/Games/" + gameName + "/" + gameName + ".game");
+    }
+
+    public static void saveReview(SaveData saveData, String gameName, String reviewTitel){
+        checkAllFolders();
+        checkFolder(persistentDataPath + "/Data/Games/" + gameName + "/Reviews");
+        writeToFile(saveData.getData(), persistentDataPath + "/Data/Games/" + gameName + "/Reviews/" + reviewTitel + ".review");
+    }
+
+    public static void saveEnquete(SaveData saveData){
+        checkAllFolders();
+        checkFolder(persistentDataPath + "/Data/Enquetes");
+
+        File folder = new File(persistentDataPath + "/Data/Enquetes");
+        int fileCount = 0;
+        File[] files = folder.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    fileCount++;
+                }
+            }
+        }
+
+        writeToFile(saveData.getData(), persistentDataPath + "/Data/Enquetes/" + "Enquete_Nr_" + fileCount + ".enqt");
+    }
 }
