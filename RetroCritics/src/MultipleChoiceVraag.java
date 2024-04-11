@@ -4,7 +4,7 @@ public class MultipleChoiceVraag extends Vraag{
     Scanner scanner = new Scanner(System.in);
     public byte antwoord;
     public byte isConditioneleVraag;
-    ArrayList<ConditioneleVraag> conditioneleVragen = new ArrayList<ConditioneleVraag>();
+    ConditioneleVraag conditioneleVraag;
 
     MultipleChoiceVraag(int nummer, String beschrijving, byte isConditioneleVraag) {
         this.nummer = nummer;
@@ -13,7 +13,25 @@ public class MultipleChoiceVraag extends Vraag{
     }
     @Override
     public void beantwoord(){
-        antwoord = scanner.nextByte();
+        boolean isByte = false;
+        while (!isByte) {
+            if (scanner.hasNextByte()) {
+
+                antwoord = scanner.nextByte();
+                antwoord--;
+            } else {
+                System.out.println("Voer een geldige keuze in");
+            }
+            if (antwoord >= 0 && antwoord < 4) {
+                isByte = true;
+            } else {
+                System.out.println("Voer een geldige keuze in");
+            }
+        }
+        if(isConditioneleVraag()) {
+            conditioneleVraag.display();
+            conditioneleVraag.beantwoord();
+        }
     }
 
     @Override
@@ -22,5 +40,8 @@ public class MultipleChoiceVraag extends Vraag{
     }
     public boolean isConditioneleVraag() {
         return antwoord == isConditioneleVraag;
+    }
+    public void voegConditioneleVraagToe(String beschrijving){
+        conditioneleVraag = new ConditioneleVraag(beschrijving);
     }
 }
