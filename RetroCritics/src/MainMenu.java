@@ -1,9 +1,11 @@
 public class MainMenu extends Menukeuze
 {
-    public MainMenu(String argument) {
-        super(argument);
+    public MainMenu(String naam) {
+        super(naam);
     }
-    public static void main(String[] args)
+
+    @Override
+    public void toonMenukeuze()
     {
         String[] spaceInvader =
         {
@@ -13,8 +15,7 @@ public class MainMenu extends Menukeuze
                 "▀▀██▀▀▀██▀▀"
         };
 
-        for (int i = 0; i < spaceInvader.length; i++)
-        {
+        for (int i = 0; i < spaceInvader.length; i++) {
             System.out.println(spaceInvader[i]);
         }
     }

@@ -2,23 +2,34 @@ import java.util.ArrayList;
 
 public class Enquete
 {
-    private ArrayList<String> vragen;
+    private ArrayList<Vraag> vragen;
 
     public Enquete()
     {
         this.vragen = new ArrayList<>();
     }
 
-    public void voegVraagToe(String vraag)
+    public void voegVraagToe(Vraag vraag)
     {
         this.vragen.add(vraag);
     }
 
-    public String toonVragen() {
-        String result = "";
-        for (int i = 0; i < vragen.size(); i++) {
-            result += vragen.get(i) + "\n";
+    public void toonVragen()
+    {
+        for (Vraag vraag : vragen)
+        {
+            vraag.display();
         }
-        return result;
+    }
+
+    public static void main(String[] args)
+    {
+        Enquete enquete = new Enquete();
+
+        enquete.voegVraagToe(new OpenVraag(1, "Wat is je naam?"));
+        enquete.voegVraagToe(new MultipleChoiceVraag(2, "Zou je de app nog een keer gebruiken? (Ja/Nee)", (byte)1));
+        enquete.voegVraagToe(new ConditioneleVraag((byte)1, "Waarom zou je de app nog een keer willen gebruiken?"));
+
+        enquete.toonVragen();
     }
 }
