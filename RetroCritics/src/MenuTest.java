@@ -1,15 +1,16 @@
 public class MenuTest {
     public static void Run(){
-        Menukeuze mainMenu = new Menukeuze("mainMenu");
-        Menukeuze gameSaleMenu = new Menukeuze("gameSaleMenu");
-        Menukeuze reviewMenu = new Menukeuze("reviewMenu");
+        Menukeuze mainMenu = new MainMenu("Main Menu");
+        Menukeuze gameListMenu = new GameListMenu("Game List Menu");
+        Menukeuze gameMenu = new GameMenu("Game Menu");
 
 
-        gameSaleMenu.menu.voegKeuzeToe(reviewMenu);
-        mainMenu.menu.voegKeuzeToe(gameSaleMenu);
+        gameListMenu.menu.voegKeuzeToe(gameMenu);
+        mainMenu.menu.voegKeuzeToe(gameListMenu);
 
-        gameSaleMenu.menu.voegKeuzeToe(mainMenu);
-        reviewMenu.menu.voegKeuzeToe(mainMenu);
+        gameListMenu.menu.voegKeuzeToe(mainMenu);
+        gameMenu.menu.voegKeuzeToe(mainMenu);
+        gameMenu.menu.voegKeuzeToe(gameListMenu);
 
         mainMenu.toonMenukeuze();
     }
