@@ -28,7 +28,7 @@ public class Enquete
 
         enquete.voegVraagToe(new OpenVraag(1, "Wat is je naam?"));
         enquete.voegVraagToe(new MultipleChoiceVraag(2, "Zou je de app nog een keer gebruiken? (Ja/Nee)", (byte)1));
-        enquete.voegVraagToe(new ConditioneleVraag((byte)1, "Waarom zou je de app nog een keer willen gebruiken?"));
+        enquete.voegVraagToe(new ConditioneleVraag("Waarom zou je de app nog een keer willen gebruiken?"));
 
         enquete.toonVragen();
     }
