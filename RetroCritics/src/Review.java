@@ -91,4 +91,6 @@ public class Review {
         System.out.println("Gemiddelde score: " + berekenGemiddeldeScore());
         System.out.println("Beschrijving: " + toelichting);
     }
+
+
 }

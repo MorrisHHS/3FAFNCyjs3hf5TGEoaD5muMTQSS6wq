@@ -11,5 +11,10 @@ public class Main {
         review.addAttribute("Beschrijving", "FAMCTORIO IS THE GOAT");
         SaveManager.saveReview(review, "Famctorio", "Mijn_Eerste_Review");
 
+        SaveData enqt = new SaveData();
+        enqt.addAttribute("Zou ik de app nog eens gebruiken?", "pluh");
+        enqt.addAttribute("Wat geef ik de app als rating?", "9/11");
+        SaveManager.saveEnquete(enqt);
+
     }
 }

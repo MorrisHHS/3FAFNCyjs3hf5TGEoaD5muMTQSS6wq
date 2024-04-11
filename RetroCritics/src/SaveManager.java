@@ -68,5 +68,20 @@ public class SaveManager {
 
     public static void saveEnquete(SaveData saveData){
         checkAllFolders();
+        checkFolder(persistentDataPath + "/Data/Enquetes");
+
+        File folder = new File(persistentDataPath + "/Data/Enquetes");
+        int fileCount = 0;
+        File[] files = folder.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    fileCount++;
+                }
+            }
+        }
+
+        writeToFile(saveData.getData(), persistentDataPath + "/Data/Enquetes/" + "Enquete_Nr_" + fileCount + ".enqt");
     }
 }
