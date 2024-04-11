@@ -1,13 +1,18 @@
 import java.util.Scanner;
 
-public class Review {
+public class Review implements ISaveable{
     String titel;
     String toelichting;
+    int prijs;
     GameAspect storyline;
     GameAspect graphics;
     GameAspect gameplay;
 
     public Review(Scanner scanner) {
+        setReview(scanner);
+    }
+
+    public void setReview(Scanner scanner) {
         setTitel(scanner);
         setToelichting(scanner);
         storyline = new GameAspect("Storyline");
@@ -69,19 +74,6 @@ public class Review {
         }
     }
 
-    public void biedEnqueteAan(Scanner scanner) {
-        System.out.println("Wilt u nog een enquete invullen? (y/n)");
-        scanner.nextLine(); // Lees de nieuwe regel na de vorige invoer
-        String enquete = scanner.nextLine();
-        if (enquete.equals("y")) {
-            System.out.println("Oké, bij deze de enquête!");
-            Enquete enquete1 = new Enquete();
-            enquete1.toonVragen();
-        } else {
-            System.out.println("Ok, doei nigger");
-        }
-    }
-
     public void toonReview() {
         System.out.println(titel);
         System.out.println("Beoordelingen:");
@@ -92,5 +84,33 @@ public class Review {
         System.out.println("Beschrijving: " + toelichting);
     }
 
+    public void biedEnqueteAan(Scanner scanner) {
+        System.out.println("Wilt u nog een enquete invullen? (y/n)");
+        scanner.nextLine(); // Lees de nieuwe regel na de vorige invoer
+        String enquete = scanner.nextLine();
+        if (enquete.equals("y")) {
+            System.out.println("Oké, bij deze de enquête!");
+            Enquete enquete1 = new Enquete();
+            enquete1.toonVragen();
+            System.out.println("Bedankt voor uw tijd en het invullen van de enquete!");
 
+        } else {
+            System.out.println("");
+        }
+    }
+
+    @Override
+    public SaveData save() {
+        SaveData saveData = new SaveData();
+
+        saveData.addAttribute("titel", titel);
+        saveData.addAttribute("prijs", String.valueOf(prijs));
+
+        return saveData;
+    }
+    @Override
+    public void load(SaveData saveData) {
+        titel = saveData.readAttribute("titel");
+        prijs = Integer.parseInt(saveData.readAttribute("prijs"));
+    }
 }
