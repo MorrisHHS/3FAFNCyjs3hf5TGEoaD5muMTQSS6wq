@@ -39,4 +39,14 @@ public class Review {
             //nigger ding voor doorsturen naar enquete
         }
     }
+
+    public void toonReview() {
+        System.out.println(titel);
+        System.out.println("Beoordelingen:");
+        System.out.println("Storyline: " + storyline.beoordeling);
+        System.out.println("Graphics: " + graphics.beoordeling);
+        System.out.println("Gameplay" + gameplay.beoordeling);
+        System.out.println("Gemiddelde score: " + berekenGemiddeldeScore());
+        System.out.println("Beschrijving: " + toelichting);
+    }
 }
