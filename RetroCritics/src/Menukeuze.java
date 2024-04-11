@@ -1,4 +1,4 @@
-public class Menukeuze extends MainMenu {
+public class Menukeuze {
     public String naam;
     public Menu menu = new Menu();
 

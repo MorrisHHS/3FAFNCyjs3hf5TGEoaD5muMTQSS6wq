@@ -1,5 +1,8 @@
-public class MainMenu
+public class MainMenu extends Menukeuze
 {
+    public MainMenu(String argument) {
+        super(argument);
+    }
     public static void main(String[] args)
     {
         String[] spaceInvader =
