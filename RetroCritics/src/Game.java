@@ -1,18 +1,18 @@
 import java.util.ArrayList;
 public class Game {
-    public String naam;
-    public int prijs;
-    public ArrayList<Review> reviews;
+    public static ArrayList<Game> list = new ArrayList<>();
+
+    public String naam = "";
+    public int prijs = 0;
+    public ArrayList<Review> reviews = new ArrayList<>();
 
     public Game(String naam, int prijs) {
         this.naam = naam;
         this.prijs = prijs;
-        reviews = new ArrayList<Review>();
     }
 
     public Game(){
-        naam = "";
-        prijs = 0;
+
     }
 
     public void setNaam(String naam) {
