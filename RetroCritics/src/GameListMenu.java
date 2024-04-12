@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GameListMenu extends Menukeuze {
 
@@ -13,7 +15,7 @@ public class GameListMenu extends Menukeuze {
 
 
         Scanner scanner = new Scanner(System.in);
-
+        Collections.sort(Game.list, Comparator.comparingDouble(Game::berekenGemiddeldeScore).reversed());
         System.out.println("Wilt u een genre kiezen?(y/n)");
         String antwoord = scanner.nextLine();
         if (antwoord.equals("y")) {
@@ -30,7 +32,6 @@ public class GameListMenu extends Menukeuze {
                 }
             }
             for (Game game : Game.list) {
-
 
                 switch (keuze) {
                     case 1:
@@ -66,6 +67,7 @@ public class GameListMenu extends Menukeuze {
             }
         }
         else {
+
             for (Game game : Game.list) {
                 System.out.println("Game naam: " + game.naam);
                 System.out.println("Prijs: " + game.prijs);

@@ -12,6 +12,11 @@ public class MultipleChoiceVraag extends Vraag{
         this.isConditioneleVraag = isConditioneleVraag;
     }
     @Override
+    public String getAntwoord() {
+        String antwoord = String.valueOf(this.antwoord);
+        return antwoord;
+    }
+    @Override
     public void beantwoord(){
         boolean isByte = false;
         while (!isByte) {
