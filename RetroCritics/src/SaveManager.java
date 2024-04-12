@@ -115,9 +115,13 @@ public class SaveManager {
                         // Read the content of each review file
                         String content = readFile(reviewFile.getAbsolutePath()).trim();
 
+                        System.out.println(content);
+
                         // saveData object
                         SaveData saveData = new SaveData();
                         saveData.setData(content);
+
+                        System.out.println(saveData.getData());
 
                         // Create a Review object from the file content
                         Review review = new Review();
@@ -126,8 +130,6 @@ public class SaveManager {
                     }
                 }
             }
-        } else {
-            System.err.println("Reviews folder does not exist for game: " + gameName);
         }
 
         return reviews;

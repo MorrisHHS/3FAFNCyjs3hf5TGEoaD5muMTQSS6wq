@@ -11,7 +11,8 @@ public class Review implements ISaveable{
         setReview(scanner);
     }
 
-    public Review(){}
+    public Review(){
+    }
 
     public void setReview(Scanner scanner) {
         setTitel(scanner);
@@ -106,12 +107,12 @@ public class Review implements ISaveable{
 
         saveData.addAttribute("titel", String.valueOf(titel));
         saveData.addAttribute("toelichting", String.valueOf(toelichting));
-        saveData.addAttribute("naam1", String.valueOf(storyline.naam));
-        saveData.addAttribute("beoordeling1", String.valueOf(storyline.beoordeling));
-        saveData.addAttribute("naam2", String.valueOf(graphics.naam));
-        saveData.addAttribute("beoordeling2", String.valueOf(graphics.beoordeling));
-        saveData.addAttribute("naam3", String.valueOf(gameplay.naam));
-        saveData.addAttribute("beoordeling3", String.valueOf(gameplay.beoordeling));
+        saveData.addAttribute("storyline", String.valueOf(storyline.naam));
+        saveData.addAttribute("storyline-rating", String.valueOf(storyline.beoordeling));
+        saveData.addAttribute("graphics", String.valueOf(graphics.naam));
+        saveData.addAttribute("graphics-rating", String.valueOf(graphics.beoordeling));
+        saveData.addAttribute("gameplay", String.valueOf(gameplay.naam));
+        saveData.addAttribute("gameplay-rating", String.valueOf(gameplay.beoordeling));
         return saveData;
     }
 
@@ -119,11 +120,11 @@ public class Review implements ISaveable{
     public void load(SaveData saveData) {
         titel = saveData.readAttribute("titel");
         toelichting = saveData.readAttribute("toelichting");
-        storyline.naam = saveData.readAttribute("naam1");
-        storyline.beoordeling = Double.parseDouble(saveData.readAttribute("beoordeling1"));
-        graphics.naam = saveData.readAttribute("naam2");
-        graphics.beoordeling = Double.parseDouble(saveData.readAttribute("beoordeling2"));
-        gameplay.naam = saveData.readAttribute("naam3");
-        gameplay.beoordeling = Double.parseDouble(saveData.readAttribute("beoordeling3"));
+        storyline = new GameAspect(saveData.readAttribute("storyline"));
+        storyline.beoordeling = Double.parseDouble(saveData.readAttribute("storyline-rating"));
+        graphics = new GameAspect(saveData.readAttribute("graphics"));
+        graphics.beoordeling = Double.parseDouble(saveData.readAttribute("graphics-rating"));
+        gameplay = new GameAspect(saveData.readAttribute("gameplay"));
+        gameplay.beoordeling = Double.parseDouble(saveData.readAttribute("gameplay-rating"));
     }
 }
