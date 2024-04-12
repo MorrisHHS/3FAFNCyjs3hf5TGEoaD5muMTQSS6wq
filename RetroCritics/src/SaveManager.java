@@ -65,7 +65,9 @@ public class SaveManager {
         SaveData saveData = new SaveData();
         String rawData = readFile(persistentDataPath + "/Data/Games/" + gameName + "/" + gameName + ".game").trim();
         saveData.setData(rawData);
-        return new Game();
+        Game game = new Game();
+        game.load(saveData);
+        return game;
     }
 
     public static ArrayList<Game> loadAllGames() {
