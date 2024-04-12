@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Game {
+public class Game implements ISaveable{
     public static ArrayList<Game> list = new ArrayList<>();
 
     public String naam = "";

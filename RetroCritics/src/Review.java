@@ -10,6 +10,7 @@ public class Review implements ISaveable{
     public Review(Scanner scanner) {
         setReview(scanner);
     }
+    public Review(){}
 
     public void setReview(Scanner scanner) {
         setTitel(scanner);
@@ -111,5 +112,6 @@ public class Review implements ISaveable{
     @Override
     public void load(SaveData saveData) {
         titel = saveData.readAttribute("titel");
+        toelichting = saveData.readAttribute("toelichting");
     }
 }
