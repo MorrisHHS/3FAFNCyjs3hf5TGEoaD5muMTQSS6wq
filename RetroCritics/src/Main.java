@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        SaveManager.initialize(); // DO NOT REMOVE DIS LINE BITCH
+        //SaveManager.initialize(); // DO NOT REMOVE DIS LINE BITCH
 
         Menukeuze mainMenu = new MainMenu("Main Menu");
         Menukeuze gameListMenu = new GameListMenu("Game List Menu");
@@ -12,14 +12,14 @@ public class Main {
         mainMenu.menu.voegKeuzeToe(gameListMenu);
         mainMenu.menu.voegKeuzeToe(saleMenu);
         gameListMenu.menu.voegKeuzeToe(gameMenu);
-        gameListMenu.menu.voegKeuzeToe(mainMenu);
         gameListMenu.menu.voegKeuzeToe(saleMenu);
+        gameListMenu.menu.voegKeuzeToe(mainMenu);
         gameMenu.menu.voegKeuzeToe(mainMenu);
         gameMenu.menu.voegKeuzeToe(gameListMenu);
 
         mainMenu.toonMenukeuze();
 
-        for (Game g : Game.list){
+        /*for (Game g : Game.list){
             System.out.println("Naam : " + g.naam);
             System.out.println("Genre: " + g.genre);
             System.out.println("Prijs: " + g.prijs);
@@ -32,6 +32,6 @@ public class Main {
                 System.out.println(r.toelichting);
                 System.out.println();
             }
-        }
+        }*/
     }
 }
