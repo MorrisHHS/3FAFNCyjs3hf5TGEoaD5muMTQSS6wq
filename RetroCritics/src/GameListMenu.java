@@ -10,7 +10,7 @@ public class GameListMenu extends Menukeuze {
     public void toonMenukeuze() {
         System.out.println(" ");
         System.out.println(naam + ":");
-        //menu.toonMenu();
+
 
         Scanner scanner = new Scanner(System.in);
 
@@ -20,7 +20,7 @@ public class GameListMenu extends Menukeuze {
             boolean isGenre = true;
             int keuze = 0;
             while (isGenre) {
-                System.out.println("Kies een genre: \n 1. RPG \n 2. Puzzel \n 3. Strategie \n 4. FPS");
+                System.out.println("Kies een genre: \nRPG(1) \nPuzzel(2) \nStrategie(3) \nFPS(4)");
                 keuze = scanner.nextInt();
                 if (keuze > 0 && keuze <= 4) {
                     isGenre = false;
@@ -68,11 +68,12 @@ public class GameListMenu extends Menukeuze {
         else {
             for (Game game : Game.list) {
                 System.out.println("Game naam: " + game.naam);
-                System.out.println("Prijs: €" + game.prijs);
+                System.out.println("Prijs: " + game.prijs);
                 System.out.println();
             }
 
         }
+        menu.toonMenu();
 
     }
 }
