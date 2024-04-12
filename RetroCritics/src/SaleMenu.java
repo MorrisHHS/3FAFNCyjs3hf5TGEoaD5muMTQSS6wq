@@ -1,5 +1,6 @@
-public class SaleMenu extends Menukeuze {
+import java.util.Scanner;
 
+public class SaleMenu extends Menukeuze {
     public SaleMenu(String naam) {
         super(naam);
     }
@@ -25,8 +26,14 @@ public class SaleMenu extends Menukeuze {
             System.out.println();
         }
 
+        // Input van de gebruiker verwerken
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Druk op Enter om verder te gaan...");
+        scanner.nextLine();
+
         System.out.println(" ");
         System.out.println(naam + ":");
         menu.toonMenu();
+
     }
 }
