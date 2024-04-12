@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Game valueFamctorio = new Game("Famctorio", 1000, "Puzzel");
-        Review review1 = new Review(scanner);
-        valueFamctorio.reviews.add(review1);
-
-
+        //Game valueFamctorio = new Game("Famctorio", 1000, "Puzzel");
+       // Review review1 = new Review(scanner);
+        //valueFamctorio.reviews.add(review1);
+        GameListMenu menukeuze = new GameListMenu("game list");
+        menukeuze.toonMenukeuze();
     }
 }

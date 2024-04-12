@@ -8,40 +8,71 @@ public class GameListMenu extends Menukeuze {
 
     @Override
     public void toonMenukeuze() {
-        Scanner scanner = new Scanner(System.in);
-        String antwoord = scanner.nextLine();
-        System.out.println("Wilt u een genre kiezen?(y/n)");
+        System.out.println(" ");
+        System.out.println(naam + ":");
+        //menu.toonMenu();
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Wilt u een genre kiezen?(y/n)");
+        String antwoord = scanner.nextLine();
         if (antwoord.equals("y")) {
+            boolean isGenre = true;
+            int keuze = 0;
+            while (isGenre) {
+                System.out.println("Kies een genre: \n 1. RPG \n 2. Puzzel \n 3. Strategie \n 4. FPS");
+                keuze = scanner.nextInt();
+                if (keuze > 0 && keuze <= 4) {
+                    isGenre = false;
+                }
+                else {
+                    System.out.println("Voer een geldige keuze in");
+                }
+            }
+            for (Game game : Game.list) {
+
+
+                switch (keuze) {
+                    case 1:
+                        if (game.genre.equals("RPG")) {
+                            System.out.println("Game naam: " + game.naam);
+                            System.out.println("Prijs: €" + game.prijs);
+                            System.out.println();
+                        }
+                        break;
+                    case 2:
+                        if (game.genre.equals("Puzzel")) {
+                            System.out.println("Game naam: " + game.naam);
+                            System.out.println("Prijs: €" + game.prijs);
+                            System.out.println();
+                        }
+                        break;
+                    case 3:
+                        if (game.genre.equals("Strategie")) {
+                            System.out.println("Game naam: " + game.naam);
+                            System.out.println("Prijs: €" + game.prijs);
+                            System.out.println();
+                        }
+                        break;
+                    case 4:
+                        if (game.genre.equals("FPS")) {
+                            System.out.println("Game naam: " + game.naam);
+                            System.out.println("Prijs: €" + game.prijs);
+                            System.out.println();
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+        else {
             for (Game game : Game.list) {
                 System.out.println("Game naam: " + game.naam);
                 System.out.println("Prijs: €" + game.prijs);
                 System.out.println();
             }
-        }
-        else {
-            System.out.println("Kies een genre: \n 1. RPG \n 2. Puzzel \n 3. Strategie");
-            for (Game game : Game.list) {
-                int keuze = scanner.nextInt();
-                switch (keuze){
-                    case 1:
-                        if(game.genre.equals("RPG")) {
-                            System.out.println(game.genre);
-                        }
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        break;
-                }
 
-            }
         }
 
-        System.out.println(" ");
-        System.out.println(naam + ":");
-        menu.toonMenu();
     }
 }
