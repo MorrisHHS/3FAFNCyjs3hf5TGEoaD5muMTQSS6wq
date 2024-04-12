@@ -10,6 +10,11 @@ public class Game {
         reviews = new ArrayList<Review>();
     }
 
+    public Game(){
+        naam = "";
+        prijs = 0;
+    }
+
     public void setNaam(String naam) {
         this.naam = naam;
     }
