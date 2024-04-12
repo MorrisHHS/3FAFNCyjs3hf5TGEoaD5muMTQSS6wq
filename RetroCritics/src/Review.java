@@ -102,14 +102,26 @@ public class Review implements ISaveable{
     public SaveData save() {
         SaveData saveData = new SaveData();
 
-        saveData.addAttribute("titel", titel);
-        saveData.addAttribute("toelichting", toelichting);
-
+        saveData.addAttribute("titel", String.valueOf(titel));
+        saveData.addAttribute("toelichting", String.valueOf(toelichting));
+        saveData.addAttribute("naam1", String.valueOf(storyline.naam));
+        saveData.addAttribute("beoordeling1", String.valueOf(storyline.beoordeling));
+        saveData.addAttribute("naam2", String.valueOf(graphics.naam));
+        saveData.addAttribute("beoordeling2", String.valueOf(graphics.beoordeling));
+        saveData.addAttribute("naam3", String.valueOf(gameplay.naam));
+        saveData.addAttribute("beoordeling3", String.valueOf(gameplay.beoordeling));
         return saveData;
     }
 
     @Override
     public void load(SaveData saveData) {
         titel = saveData.readAttribute("titel");
+        toelichting = saveData.readAttribute("toelichting");
+        storyline.naam = saveData.readAttribute("naam1");
+        storyline.beoordeling = Double.parseDouble(saveData.readAttribute("beoordeling1"));
+        graphics.naam = saveData.readAttribute("naam2");
+        graphics.beoordeling = Double.parseDouble(saveData.readAttribute("beoordeling2"));
+        gameplay.naam = saveData.readAttribute("naam3");
+        gameplay.beoordeling = Double.parseDouble(saveData.readAttribute("beoordeling3"));
     }
 }
