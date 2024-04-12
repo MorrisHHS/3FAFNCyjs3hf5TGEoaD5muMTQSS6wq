@@ -51,4 +51,10 @@ public class Enquete implements ISaveable
         }
         return saveData;
     }
+
+    @Override
+    public void load(SaveData saveData) {
+        System.out.println("nigger");
+    }
 }
+
