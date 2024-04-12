@@ -7,3 +7,5 @@ public class GameAspect {
         this.naam = naam;
     }
 }
+
+//tijdelijk

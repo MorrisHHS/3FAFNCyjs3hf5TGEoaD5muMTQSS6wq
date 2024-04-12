@@ -60,7 +60,7 @@ public class Menu {
         keuzes.get(keuze).toonMenukeuze();
     }
 
-
+//tijdelijk
     public void voegKeuzeToe(Menukeuze menu){
         menukeuzes.add(menu);
     }
