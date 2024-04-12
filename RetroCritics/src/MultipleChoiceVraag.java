@@ -21,8 +21,8 @@ public class MultipleChoiceVraag extends Vraag{
         boolean isByte = false;
         while (!isByte) {
             if (scanner.hasNextByte()) {
-
                 antwoord = scanner.nextByte();
+                antwoord--;
             } else {
                 System.out.println("Voer een geldige keuze in");
             }
