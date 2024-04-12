@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,6 +14,7 @@ public class GameListMenu extends Menukeuze {
         System.out.println(" ");
         System.out.println(naam + ":");
 
+        ArrayList<Menukeuze> gameMenus = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
         Collections.sort(Game.list, Comparator.comparingDouble(Game::berekenGemiddeldeScore).reversed());
@@ -31,14 +33,23 @@ public class GameListMenu extends Menukeuze {
                     System.out.println("Voer een geldige keuze in");
                 }
             }
+
+
+
             for (Game game : Game.list) {
 
                 switch (keuze) {
                     case 1:
                         if (game.genre.equals("RPG")) {
-                            System.out.println("Game naam: " + game.naam);
-                            System.out.println("Prijs: " + game.prijs);
-                            System.out.println();
+                            GameMenu gameMenu = new GameMenu(game.naam);
+                            gameMenu.game = game;
+                            gameMenu.menu.voegKeuzeToe(this);
+
+
+
+                            // Voeg hier andere dingen toe voor de game menu
+
+                            gameMenus.add(gameMenu);
                         }
                         break;
                     case 2:
@@ -64,6 +75,8 @@ public class GameListMenu extends Menukeuze {
                     default:
                         break;
                 }
+
+
             }
         }
         else {
@@ -75,6 +88,7 @@ public class GameListMenu extends Menukeuze {
             }
 
         }
+        menu.tijdelijkeKeuzes = gameMenus;
         menu.toonMenu();
 
     }
