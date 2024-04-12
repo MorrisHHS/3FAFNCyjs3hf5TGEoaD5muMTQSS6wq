@@ -4,11 +4,13 @@ public class Game {
 
     public String naam = "";
     public int prijs = 0;
+    public String genre;
     public ArrayList<Review> reviews = new ArrayList<>();
 
-    public Game(String naam, int prijs) {
+    public Game(String naam, int prijs, String genre) {
         this.naam = naam;
         this.prijs = prijs;
+        this.genre = genre;
     }
 
     public Game(){
@@ -39,5 +41,20 @@ public class Game {
     }
 
 
+    @Override
+    public SaveData save() {
+        SaveData saveData = new SaveData();
 
+        saveData.addAttribute("naam", String.valueOf(naam));
+        saveData.addAttribute("prijs", String.valueOf(prijs));
+        saveData.addAttribute("genre", String.valueOf(genre));
+        return saveData;
+    }
+
+    @Override
+    public void load(SaveData saveData) {
+        naam = saveData.readAttribute("naam");
+        prijs = Integer.parseInt(saveData.readAttribute("prijs"));
+        genre = saveData.readAttribute("genre");
+    }
 }
