@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SaveManager {
     private static final boolean debug = true;
-    private static final String DATA_PATH = "RetroCritics/Data"; // Define the data directory path
+    private static final String DATA_PATH = "RetroCritics"; // Define the data directory path
     private static final String persistentDataPath = System.getProperty("user.dir") + "/" + DATA_PATH; // Construct the persistent data path
 
 
