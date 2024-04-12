@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.util.ArrayList;
 
 public class SaveManager {
-    private static final boolean debug = true;
+    private static final boolean debug = false;
     private static final String DATA_PATH = "RetroCritics"; // Define the data directory path
     private static final String persistentDataPath = System.getProperty("user.dir") + "/" + DATA_PATH; // Construct the persistent data path
 
@@ -115,13 +115,17 @@ public class SaveManager {
                         // Read the content of each review file
                         String content = readFile(reviewFile.getAbsolutePath()).trim();
 
-                        System.out.println(content);
+                        if (debug){
+                            System.out.println(content);
+                        }
 
                         // saveData object
                         SaveData saveData = new SaveData();
                         saveData.setData(content);
 
-                        System.out.println(saveData.getData());
+                        if (debug){
+                            System.out.println(saveData.getData());
+                        }
 
                         // Create a Review object from the file content
                         Review review = new Review();
