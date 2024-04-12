@@ -14,7 +14,6 @@ public class Main {
 
         mainMenu.menu.voegKeuzeToe(gameListMenu);
         mainMenu.menu.voegKeuzeToe(saleMenu);
-        gameListMenu.menu.voegKeuzeToe(gameMenu);
         gameListMenu.menu.voegKeuzeToe(mainMenu);
         gameListMenu.menu.voegKeuzeToe(saleMenu);
         gameMenu.menu.voegKeuzeToe(mainMenu);
