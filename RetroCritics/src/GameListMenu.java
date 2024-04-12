@@ -36,28 +36,28 @@ public class GameListMenu extends Menukeuze {
                     case 1:
                         if (game.genre.equals("RPG")) {
                             System.out.println("Game naam: " + game.naam);
-                            System.out.println("Prijs: €" + game.prijs);
+                            System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                         break;
                     case 2:
                         if (game.genre.equals("Puzzel")) {
                             System.out.println("Game naam: " + game.naam);
-                            System.out.println("Prijs: €" + game.prijs);
+                            System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                         break;
                     case 3:
                         if (game.genre.equals("Strategie")) {
                             System.out.println("Game naam: " + game.naam);
-                            System.out.println("Prijs: €" + game.prijs);
+                            System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                         break;
                     case 4:
                         if (game.genre.equals("FPS")) {
                             System.out.println("Game naam: " + game.naam);
-                            System.out.println("Prijs: €" + game.prijs);
+                            System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                     default:
