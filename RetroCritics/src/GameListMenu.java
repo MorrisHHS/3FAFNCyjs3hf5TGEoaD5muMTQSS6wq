@@ -54,23 +54,30 @@ public class GameListMenu extends Menukeuze {
                         break;
                     case 2:
                         if (game.genre.equals("Puzzel")) {
-                            System.out.println("Game naam: " + game.naam);
-                            System.out.println("Prijs: " + game.prijs);
-                            System.out.println();
+                            GameMenu gameMenu = new GameMenu(game.naam);
+                            gameMenu.game = game;
+                            gameMenu.menu.voegKeuzeToe(this);
+
+                            gameMenus.add(gameMenu);
                         }
                         break;
                     case 3:
                         if (game.genre.equals("Strategie")) {
-                            System.out.println("Game naam: " + game.naam);
-                            System.out.println("Prijs: " + game.prijs);
-                            System.out.println();
+                            GameMenu gameMenu = new GameMenu(game.naam);
+                            gameMenu.game = game;
+                            gameMenu.menu.voegKeuzeToe(this);
+
+                            gameMenus.add(gameMenu);
                         }
                         break;
                     case 4:
                         if (game.genre.equals("FPS")) {
-                            System.out.println("Game naam: " + game.naam);
-                            System.out.println("Prijs: " + game.prijs);
-                            System.out.println();
+                            GameMenu gameMenu = new GameMenu(game.naam);
+                            gameMenu.game = game;
+                            gameMenu.menu.voegKeuzeToe(this);
+
+                            gameMenus.add(gameMenu);
+
                         }
                     default:
                         break;

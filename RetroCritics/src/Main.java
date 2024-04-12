@@ -5,7 +5,7 @@ public class Main {
         SaveManager.initialize(); // DO NOT REMOVE DIS LINE BITCH
 
         Scanner s = new Scanner(System.in);
-        Review rev = new Review(s);
+        //Review rev = new Review(s);
 
         Menukeuze mainMenu = new MainMenu("Main Menu");
         Menukeuze gameListMenu = new GameListMenu("Game List Menu");
