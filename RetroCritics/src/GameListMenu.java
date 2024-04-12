@@ -9,7 +9,7 @@ public class GameListMenu extends Menukeuze{
         System.out.println();
 
         // gooi hier de games in
-        //Savemanager.load
+        SaveManager.loadAllGames();
 
         System.out.println(" ");
         System.out.println(naam + ":");
