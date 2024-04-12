@@ -11,6 +11,8 @@ public class Review implements ISaveable{
         setReview(scanner);
     }
 
+    public Review(){}
+
     public void setReview(Scanner scanner) {
         setTitel(scanner);
         setToelichting(scanner);
