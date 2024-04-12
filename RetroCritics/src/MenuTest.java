@@ -6,6 +6,7 @@ public class MenuTest {
         Menukeuze saleMenu = new SaleMenu("Sale Menu");
 
         mainMenu.menu.voegKeuzeToe(gameListMenu);
+        mainMenu.menu.voegKeuzeToe(saleMenu);
         gameListMenu.menu.voegKeuzeToe(gameMenu);
         gameListMenu.menu.voegKeuzeToe(mainMenu);
         gameListMenu.menu.voegKeuzeToe(saleMenu);
