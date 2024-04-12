@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 public class SaveManager {
     private static final boolean debug = true;
-    private static final String persistentDataPath = System.getProperty("java.class.path");
+    private static final String DATA_PATH = "RetroCritics"; // Define the data directory path
+    private static final String persistentDataPath = System.getProperty("user.dir") + "/" + DATA_PATH; // Construct the persistent data path
+
 
     private static void writeToFile(String data, String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
@@ -95,6 +97,43 @@ public class SaveManager {
         writeToFile(saveData.getData(), persistentDataPath + "/Data/Games/" + gameName + "/Reviews/" + reviewTitel + ".review");
     }
 
+
+    public static ArrayList<Review> loadAllReviews(String gameName) {
+        ArrayList<Review> reviews = new ArrayList<>();
+
+        // Define the directory path based on the game name
+        String reviewsFolderPath = persistentDataPath + "/Data/Games/" + gameName + "/Reviews";
+        File reviewsFolder = new File(reviewsFolderPath);
+
+        // Check if the Reviews folder exists
+        if (reviewsFolder.exists() && reviewsFolder.isDirectory()) {
+            File[] reviewFiles = reviewsFolder.listFiles();
+
+            if (reviewFiles != null) {
+                for (File reviewFile : reviewFiles) {
+                    if (reviewFile.isFile()) {
+                        // Read the content of each review file
+                        String content = readFile(reviewFile.getAbsolutePath()).trim();
+
+                        System.out.println(content);
+
+                        // saveData object
+                        SaveData saveData = new SaveData();
+                        saveData.setData(content);
+
+                        System.out.println(saveData.getData());
+
+                        // Create a Review object from the file content
+                        Review review = new Review();
+                        review.load(saveData);
+                        reviews.add(review);
+                    }
+                }
+            }
+        }
+
+        return reviews;
+    }
     public static void saveEnquete(SaveData saveData){
         checkAllFolders();
         checkFolder(persistentDataPath + "/Data/Enquetes");
@@ -115,6 +154,9 @@ public class SaveManager {
     }
 
     public static void initialize(){
-
+        Game.list = loadAllGames();
+        for (Game game : Game.list){
+            game.reviews = loadAllReviews(game.naam);
+        }
     }
 }

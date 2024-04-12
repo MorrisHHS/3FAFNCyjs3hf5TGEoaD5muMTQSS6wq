@@ -23,7 +23,6 @@ public class MultipleChoiceVraag extends Vraag{
             if (scanner.hasNextByte()) {
 
                 antwoord = scanner.nextByte();
-                antwoord--;
             } else {
                 System.out.println("Voer een geldige keuze in");
             }
