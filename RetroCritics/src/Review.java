@@ -26,7 +26,7 @@ public class Review implements ISaveable{
     }
 
     public void setTitel(Scanner scanner) {
-        System.out.println("Typ hier de titel van uw review over het spel:");
+        System.out.print("Typ hier de titel van uw review over het spel:");
         if (scanner.hasNextLine()) {
             this.titel = scanner.nextLine();
         }
@@ -64,7 +64,8 @@ public class Review implements ISaveable{
                     geldigeInvoer = true;
                 }
             } else {
-                System.out.println("Ongeldige invoer. Voer een geldige beoordeling in.");
+                System.out.println
+                        ("Ongeldige invoer. Voer een geldige beoordeling in.");
                 scanner.next(); // Overslaan van ongeldige invoer
             }
         }

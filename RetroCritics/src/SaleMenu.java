@@ -15,14 +15,15 @@ public class SaleMenu extends Menukeuze {
         System.out.println("Games met korting:");
         for (Game game : Game.list) {
             // Korting berekenen en toepassen
-            int korting = (game.getPrijs() * kortingBedrag) / 100;
-            int nieuwePrijs = game.getPrijs() - korting;
+            double korting = (double)game.prijs / 10000 * kortingBedrag;
+            double oudePrijs = (double)game.prijs / 100;
+            double nieuwePrijs = oudePrijs - korting;
 
             // Afdrukken van game met korting
             System.out.println("Game naam: " + game.getNaam());
-            System.out.println("Oude prijs: " + game.getPrijs());
-            System.out.println("Korting: " + korting);
-            System.out.println("Nieuwe prijs na korting: " + nieuwePrijs);
+            System.out.printf("Oude prijs: %.2f\n", oudePrijs);
+            System.out.printf("Korting: %.2f\n", korting);
+            System.out.printf("Nieuwe prijs na korting: %.2f\n", nieuwePrijs);
             System.out.println();
         }
 
