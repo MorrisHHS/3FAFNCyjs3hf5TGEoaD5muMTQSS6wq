@@ -45,7 +45,7 @@ public class Game implements ISaveable {
         return gemiddeldeScore;
     }
 
-//tijdelijk
+
     @Override
     public SaveData save() {
         SaveData saveData = new SaveData();
