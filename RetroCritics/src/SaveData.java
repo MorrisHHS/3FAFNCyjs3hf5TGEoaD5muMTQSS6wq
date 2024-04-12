@@ -27,5 +27,6 @@ public class SaveData {
             String[] finaleData = s.split("=");
             this.data.put(finaleData[0], finaleData[1]);
         }
+
     }
 }
