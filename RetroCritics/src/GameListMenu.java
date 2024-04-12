@@ -15,7 +15,7 @@ public class GameListMenu extends Menukeuze {
 
 
         Scanner scanner = new Scanner(System.in);
-        Collections.sort(Game.list, Comparator.comparingDouble(Game::berekenGemiddeldeScore).reversed());
+        //Game.list.sort(Comparator.comparingDouble(Game::berekenGemiddeldeScore).reversed());
         System.out.println("Wilt u een genre kiezen?(y/n)");
         String antwoord = scanner.nextLine();
         if (antwoord.equals("y")) {
@@ -26,56 +26,86 @@ public class GameListMenu extends Menukeuze {
                 keuze = scanner.nextInt();
                 if (keuze > 0 && keuze <= 4) {
                     isGenre = false;
-                }
-                else {
+                } else {
                     System.out.println("Voer een geldige keuze in");
                 }
             }
+            int counter = 0;
             for (Game game : Game.list) {
 
                 switch (keuze) {
                     case 1:
                         if (game.genre.equals("RPG")) {
-                            System.out.println("Game naam: " + game.naam);
+
+                            counter++;
+                            System.out.println("[" + counter + "] Game naam: " + game.naam);
                             System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                         break;
                     case 2:
                         if (game.genre.equals("Puzzel")) {
-                            System.out.println("Game naam: " + game.naam);
+
+                            counter++;
+                            System.out.println("[" + counter + "] Game naam: " + game.naam);
                             System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                         break;
                     case 3:
                         if (game.genre.equals("Strategie")) {
-                            System.out.println("Game naam: " + game.naam);
+
+                            counter++;
+                            System.out.println("[" + counter + "] Game naam: " + game.naam);
                             System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                         break;
                     case 4:
                         if (game.genre.equals("FPS")) {
-                            System.out.println("Game naam: " + game.naam);
+
+                            counter++;
+                            System.out.println("[" + counter + "] Game naam: " + game.naam);
                             System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                     default:
+                        counter++;
                         break;
                 }
             }
-        }
-        else {
+            counter++;
+            System.out.println("[ " + counter + "] Main Menu");
+            int getal = scanner.nextInt();
+            scanner.nextLine();
 
+            if (getal > 0 && 30 >= getal) {
+                getal--;
+                Game.list.get(getal);
+            }
+        }
+
+        else {
+            int counter = 0;
             for (Game game : Game.list) {
-                System.out.println("Game naam: " + game.naam);
+
+                counter++;
+                System.out.println("[" + counter + "] Game naam: " + game.naam);
                 System.out.println("Prijs: " + game.prijs);
                 System.out.println();
             }
+            counter++;
+            System.out.println("[ " + counter + "] Main Menu");
+            int getal = scanner.nextInt();
+            scanner.nextLine();
+            if (getal >0 && 30 >=getal) {
+                getal--;
+                Game.list.get(getal).reviews.add(new Review(scanner));
 
+            }
+            menu.toonMenu();
         }
-        menu.toonMenu();
+
 
     }
 }

@@ -19,7 +19,6 @@ public class Enquete implements ISaveable
             vraag.display();
             vraag.beantwoord();
         }
-        SaveManager.saveEnquete(this.save());
     }
 
     public void voegVraagToe(Vraag vraag) {
@@ -39,16 +38,16 @@ public class Enquete implements ISaveable
         for (Vraag vraag : vragen) {
             if (vraag instanceof OpenVraag) {
                 OpenVraag openVraag = (OpenVraag) vraag;
-                saveData.addAttribute(openVraag.beschrijving, openVraag.antwoord);
+                saveData.addAttribute("vraag" + counter, openVraag.beschrijving);
+                saveData.addAttribute("antwoord" + counter, openVraag.antwoord);
             } else if (vraag instanceof MultipleChoiceVraag) {
                 MultipleChoiceVraag multipleChoiceVraag = (MultipleChoiceVraag) vraag;
-                saveData.addAttribute(multipleChoiceVraag.beschrijving, String.valueOf(multipleChoiceVraag.antwoord));
+                saveData.addAttribute("vraag" + counter, String.valueOf(multipleChoiceVraag.antwoord));
                 if (0 == multipleChoiceVraag.antwoord) {
                     counter++;
-                    saveData.addAttribute(multipleChoiceVraag.conditioneleVraag.beschrijving, multipleChoiceVraag.conditioneleVraag.antwoord);
+                    saveData.addAttribute("vraag" + counter, multipleChoiceVraag.conditioneleVraag.antwoord);
                 }
             }
-            counter++;
         }
         return saveData;
     }

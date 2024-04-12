@@ -8,7 +8,7 @@ public class Gametest {
 
     @Test
     public void testConstructor() {
-        Game game = new Game("Example Game", 50, "nigger");
+        Game game = new Game("Example Game", 50, "RPG");
         assertEquals("Example Game", game.getNaam());
         assertEquals(50, game.getPrijs());
         assertEquals(0, game.reviews.size());
