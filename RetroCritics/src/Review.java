@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Review implements ISaveable{
     String titel;
     String toelichting;
-    int prijs;
     GameAspect storyline;
     GameAspect graphics;
     GameAspect gameplay;
@@ -104,13 +103,13 @@ public class Review implements ISaveable{
         SaveData saveData = new SaveData();
 
         saveData.addAttribute("titel", titel);
-        saveData.addAttribute("prijs", String.valueOf(prijs));
+        saveData.addAttribute("toelichting", toelichting);
 
         return saveData;
     }
+
     @Override
     public void load(SaveData saveData) {
         titel = saveData.readAttribute("titel");
-        prijs = Integer.parseInt(saveData.readAttribute("prijs"));
     }
 }
