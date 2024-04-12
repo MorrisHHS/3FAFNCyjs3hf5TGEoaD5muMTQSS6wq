@@ -1,20 +1,20 @@
 import java.util.ArrayList;
-public class Game implements ISaveable{
-    public String naam;
-    public int prijs;
+public class Game {
+    public static ArrayList<Game> list = new ArrayList<>();
+
+    public String naam = "";
+    public int prijs = 0;
     public String genre;
-    public ArrayList<Review> reviews;
+    public ArrayList<Review> reviews = new ArrayList<>();
 
     public Game(String naam, int prijs, String genre) {
         this.naam = naam;
         this.prijs = prijs;
         this.genre = genre;
-        reviews = new ArrayList<Review>();
     }
 
     public Game(){
-        naam = "";
-        prijs = 0;
+
     }
 
     public void setNaam(String naam) {
