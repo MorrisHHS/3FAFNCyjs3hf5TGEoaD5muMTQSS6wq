@@ -5,6 +5,11 @@ public class OpenVraag extends Vraag{
     OpenVraag (){
 
     }
+
+    @Override
+    public String getAntwoord() {
+        return antwoord;
+    }
     OpenVraag(int nummer, String beschrijving){
         this.nummer = nummer;
         this.beschrijving = beschrijving;
@@ -12,6 +17,7 @@ public class OpenVraag extends Vraag{
     @Override
     public void beantwoord() {
         antwoord = scanner.nextLine();
+
     }
 
     @Override
