@@ -1,6 +1,6 @@
-public class GameListMenu extends Menukeuze{
+public class SaleMenu extends Menukeuze{
 
-    public GameListMenu(String naam) {
+    public SaleMenu(String naam) {
         super(naam);
     }
 
@@ -8,7 +8,7 @@ public class GameListMenu extends Menukeuze{
     public void toonMenukeuze() {
         System.out.println();
 
-        // gooi hier de games in
+        // gooi hier de games met korting in
 
 
         System.out.println(" ");
