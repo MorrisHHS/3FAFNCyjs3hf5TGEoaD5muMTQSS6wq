@@ -4,6 +4,9 @@ public class Main {
     public static void main(String[] args) {
         SaveManager.initialize(); // DO NOT REMOVE DIS LINE BITCH
 
+        Scanner s = new Scanner(System.in);
+        Review rev = new Review(s);
+
         Menukeuze mainMenu = new MainMenu("Main Menu");
         Menukeuze gameListMenu = new GameListMenu("Game List Menu");
         Menukeuze gameMenu = new GameMenu("Game Menu");
