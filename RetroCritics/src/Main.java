@@ -8,6 +8,5 @@ public class Main {
         Review review1 = new Review(scanner);
         valueFamctorio.reviews.add(review1);
 
-
     }
 }
