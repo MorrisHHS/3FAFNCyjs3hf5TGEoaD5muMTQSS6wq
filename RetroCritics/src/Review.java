@@ -95,7 +95,7 @@ public class Review implements ISaveable{
             System.out.println("Bedankt voor uw tijd en het invullen van de enquete!");
 
         } else {
-            System.out.println("");
+            System.out.println("Jammer, doei");
         }
     }
 
