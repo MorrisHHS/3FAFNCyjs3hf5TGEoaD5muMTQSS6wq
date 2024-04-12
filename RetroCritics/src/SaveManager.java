@@ -61,17 +61,17 @@ public class SaveManager {
         writeToFile(saveData.getData(), persistentDataPath + "/Data/Games/" + gameName + "/" + gameName + ".game");
     }
 
-    public static SaveData loadGame(String gameName){
+    public static Game loadGame(String gameName){
         SaveData saveData = new SaveData();
         String rawData = readFile(persistentDataPath + "/Data/Games/" + gameName + "/" + gameName + ".game").trim();
         saveData.setData(rawData);
         return  saveData;
     }
 
-    public static ArrayList<SaveData> loadAllGames() {
+    public static ArrayList<Game> loadAllGames() {
         checkAllFolders();
 
-        ArrayList<SaveData> allGames = new ArrayList<>();
+        ArrayList<Game> allGames = new ArrayList<>();
         File gamesFolder = new File(persistentDataPath + "/Data/Games/");
 
         File[] gameFolders = gamesFolder.listFiles();
@@ -79,8 +79,7 @@ public class SaveManager {
             for (File gameFolder : gameFolders) {
                 if (gameFolder.isDirectory()) {
                     String gameName = gameFolder.getName();
-                    SaveData saveData = loadGame(gameName);
-                    allGames.add(saveData);
+                    allGames.add(loadGame(gameName));
                 }
             }
         }
