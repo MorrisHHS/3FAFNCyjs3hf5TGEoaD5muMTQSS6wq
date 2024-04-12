@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,9 +14,10 @@ public class GameListMenu extends Menukeuze {
         System.out.println(" ");
         System.out.println(naam + ":");
 
+        ArrayList<Menukeuze> gameMenus = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
-        //Game.list.sort(Comparator.comparingDouble(Game::berekenGemiddeldeScore).reversed());
+        Collections.sort(Game.list, Comparator.comparingDouble(Game::berekenGemiddeldeScore).reversed());
         System.out.println("Wilt u een genre kiezen?(y/n)");
         String antwoord = scanner.nextLine();
         if (antwoord.equals("y")) {
@@ -26,86 +28,68 @@ public class GameListMenu extends Menukeuze {
                 keuze = scanner.nextInt();
                 if (keuze > 0 && keuze <= 4) {
                     isGenre = false;
-                } else {
+                }
+                else {
                     System.out.println("Voer een geldige keuze in");
                 }
             }
-            int counter = 0;
+
+
+
             for (Game game : Game.list) {
 
                 switch (keuze) {
                     case 1:
                         if (game.genre.equals("RPG")) {
+                            GameMenu gameMenu = new GameMenu(game.naam);
+                            gameMenu.game = game;
+                            gameMenu.menu.voegKeuzeToe(this);
 
-                            counter++;
-                            System.out.println("[" + counter + "] Game naam: " + game.naam);
-                            System.out.println("Prijs: " + game.prijs);
-                            System.out.println();
+
+
+                            // Voeg hier andere dingen toe voor de game menu
+
+                            gameMenus.add(gameMenu);
                         }
                         break;
                     case 2:
                         if (game.genre.equals("Puzzel")) {
-
-                            counter++;
-                            System.out.println("[" + counter + "] Game naam: " + game.naam);
+                            System.out.println("Game naam: " + game.naam);
                             System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                         break;
                     case 3:
                         if (game.genre.equals("Strategie")) {
-
-                            counter++;
-                            System.out.println("[" + counter + "] Game naam: " + game.naam);
+                            System.out.println("Game naam: " + game.naam);
                             System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                         break;
                     case 4:
                         if (game.genre.equals("FPS")) {
-
-                            counter++;
-                            System.out.println("[" + counter + "] Game naam: " + game.naam);
+                            System.out.println("Game naam: " + game.naam);
                             System.out.println("Prijs: " + game.prijs);
                             System.out.println();
                         }
                     default:
-                        counter++;
                         break;
                 }
-            }
-            counter++;
-            System.out.println("[ " + counter + "] Main Menu");
-            int getal = scanner.nextInt();
-            scanner.nextLine();
 
-            if (getal > 0 && 30 >= getal) {
-                getal--;
-                Game.list.get(getal);
+
             }
         }
-
         else {
-            int counter = 0;
-            for (Game game : Game.list) {
 
-                counter++;
-                System.out.println("[" + counter + "] Game naam: " + game.naam);
+            for (Game game : Game.list) {
+                System.out.println("Game naam: " + game.naam);
                 System.out.println("Prijs: " + game.prijs);
                 System.out.println();
             }
-            counter++;
-            System.out.println("[ " + counter + "] Main Menu");
-            int getal = scanner.nextInt();
-            scanner.nextLine();
-            if (getal >0 && 30 >=getal) {
-                getal--;
-                Game.list.get(getal).reviews.add(new Review(scanner));
 
-            }
-            menu.toonMenu();
         }
-
+        menu.tijdelijkeKeuzes = gameMenus;
+        menu.toonMenu();
 
     }
 }

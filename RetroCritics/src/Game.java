@@ -36,7 +36,12 @@ public class Game implements ISaveable {
         for(int i = 0; i < reviews.size(); i++) {
             score += reviews.get(i).berekenGemiddeldeScore();
         }
-        double gemiddeldeScore = score / reviews.size();
+
+        double gemiddeldeScore = 0;
+        if (reviews.size() != 0 && reviews != null){
+            gemiddeldeScore = score / reviews.size();
+        }
+
         return gemiddeldeScore;
     }
 
