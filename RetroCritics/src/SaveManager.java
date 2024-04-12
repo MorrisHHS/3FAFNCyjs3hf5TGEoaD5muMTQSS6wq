@@ -113,4 +113,8 @@ public class SaveManager {
 
         writeToFile(saveData.getData(), persistentDataPath + "/Data/Enquetes/" + "Enquete_Nr_" + fileCount + ".enqt");
     }
+
+    public static void initialize(){
+
+    }
 }
