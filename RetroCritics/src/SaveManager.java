@@ -1,9 +1,10 @@
 import java.io.*;
 import java.nio.file.*;
+import java.util.ArrayList;
 
 public class SaveManager {
-    private static boolean debug = true;
-    private static String persistentDataPath = System.getProperty("java.class.path");
+    private static final boolean debug = true;
+    private static final String persistentDataPath = System.getProperty("java.class.path");
 
     private static void writeToFile(String data, String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
@@ -58,6 +59,32 @@ public class SaveManager {
         checkAllFolders();
         checkFolder(persistentDataPath + "/Data/Games/" + gameName);
         writeToFile(saveData.getData(), persistentDataPath + "/Data/Games/" + gameName + "/" + gameName + ".game");
+    }
+
+    public static Game loadGame(String gameName){
+        SaveData saveData = new SaveData();
+        String rawData = readFile(persistentDataPath + "/Data/Games/" + gameName + "/" + gameName + ".game").trim();
+        saveData.setData(rawData);
+        return new Game();
+    }
+
+    public static ArrayList<Game> loadAllGames() {
+        checkAllFolders();
+
+        ArrayList<Game> allGames = new ArrayList<>();
+        File gamesFolder = new File(persistentDataPath + "/Data/Games/");
+
+        File[] gameFolders = gamesFolder.listFiles();
+        if (gameFolders != null) {
+            for (File gameFolder : gameFolders) {
+                if (gameFolder.isDirectory()) {
+                    String gameName = gameFolder.getName();
+                    allGames.add(loadGame(gameName));
+                }
+            }
+        }
+
+        return allGames;
     }
 
     public static void saveReview(SaveData saveData, String gameName, String reviewTitel){
