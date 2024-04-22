@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class OpenVraag extends Vraag{
     Scanner scanner = new Scanner(System.in);
-    public String antwoord;
+    public String antwoord = "";
     OpenVraag (){
 
     }

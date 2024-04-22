@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Enquete implements ISaveable
 {
+    boolean debug = false;
     ArrayList<Vraag> vragen;
 
     public Enquete() {
@@ -35,20 +36,16 @@ public class Enquete implements ISaveable
     @Override
     public SaveData save() {
         SaveData saveData = new SaveData();
-        boolean isConditionele = false;
-        int counter = 0;
         for (Vraag vraag : vragen) {
-            if (vraag instanceof OpenVraag) {
-                OpenVraag openVraag = (OpenVraag) vraag;
-                saveData.addAttribute("vraag" + counter, openVraag.beschrijving);
-                saveData.addAttribute("antwoord" + counter, openVraag.antwoord);
-            } else if (vraag instanceof MultipleChoiceVraag) {
-                MultipleChoiceVraag multipleChoiceVraag = (MultipleChoiceVraag) vraag;
-                saveData.addAttribute("vraag" + counter, String.valueOf(multipleChoiceVraag.antwoord));
-                if (0 == multipleChoiceVraag.antwoord) {
-                    counter++;
-                    saveData.addAttribute("vraag" + counter, multipleChoiceVraag.conditioneleVraag.antwoord);
-                }
+
+            if(debug){
+                System.out.println(vraag.beschrijving);
+                System.out.println(vraag.getAntwoord());
+            }
+            saveData.addAttribute(vraag.beschrijving, vraag.getAntwoord());
+
+            if (vraag instanceof MultipleChoiceVraag){
+                saveData.addAttribute(((MultipleChoiceVraag) vraag).conditioneleVraag.beschrijving, ((MultipleChoiceVraag) vraag).conditioneleVraag.antwoord);
             }
         }
         return saveData;
