@@ -1,13 +1,15 @@
 import java.util.Scanner;
 
 public class Review implements ISaveable{
+    String gameNaam;
     String titel;
     String toelichting;
     GameAspect storyline;
     GameAspect graphics;
     GameAspect gameplay;
 
-    public Review(Scanner scanner) {
+    public Review(Scanner scanner, String gameNaam) {
+        this.gameNaam = gameNaam;
         setReview(scanner);
     }
 
@@ -23,6 +25,7 @@ public class Review implements ISaveable{
         geefRating(scanner, storyline);
         geefRating(scanner, graphics);
         geefRating(scanner, gameplay);
+        SaveManager.saveReview(save(), gameNaam, titel);
     }
 
     public void setTitel(Scanner scanner) {
@@ -114,6 +117,7 @@ public class Review implements ISaveable{
         saveData.addAttribute("graphics-rating", String.valueOf(graphics.beoordeling));
         saveData.addAttribute("gameplay", String.valueOf(gameplay.naam));
         saveData.addAttribute("gameplay-rating", String.valueOf(gameplay.beoordeling));
+
         return saveData;
     }
 

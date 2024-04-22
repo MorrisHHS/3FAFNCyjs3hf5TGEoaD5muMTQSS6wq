@@ -15,7 +15,7 @@ public class GameMenu extends Menukeuze{
         System.out.println(game.naam + ":");
         System.out.println("Prijs: " + ((double)game.prijs / 100));
 
-        Review rev = new Review(new Scanner(System.in));
+        Review rev = new Review(new Scanner(System.in), game.naam);
 
         menu.toonMenu();
     }
