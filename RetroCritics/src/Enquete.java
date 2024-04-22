@@ -19,6 +19,7 @@ public class Enquete implements ISaveable
             vraag.display();
             vraag.beantwoord();
         }
+        SaveManager.saveEnquete(save());
     }
 
     public void voegVraagToe(Vraag vraag) {
@@ -30,6 +31,7 @@ public class Enquete implements ISaveable
         MultipleChoiceVraag vraagje = (MultipleChoiceVraag) vraag;
         vraagje.voegConditioneleVraagToe(beschrijving);
     }
+
     @Override
     public SaveData save() {
         SaveData saveData = new SaveData();
