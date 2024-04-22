@@ -53,7 +53,6 @@ public class Enquete implements ISaveable
 
     @Override
     public void load(SaveData saveData) {
-        System.out.println("");
     }
 }
 
